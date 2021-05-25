@@ -7,8 +7,8 @@ html.innerHTML =`
         <a href="/" class="d-flex mb-2 mb-lg-0 text-white text-decoration-none">
             <img src="./Assets/Images/logo3.png" alt="" class="bi me-2" width="80" height="72" role="img">
         </a>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-white">Retirar materiales</a></li>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"> 
+            <li><a href="#" class="nav-link px-2 text-white"  data-bs-toggle="modal" data-bs-target="#myModal">Retirar materiales</a></li>
             <li><a href="#" class="nav-link px-2 text-white">Materiales ¿Cómo entregarlos?</a></li>
             <li><a href="#" class="nav-link px-2 text-white">Oferta de Transporte</a></li>
         </ul>
