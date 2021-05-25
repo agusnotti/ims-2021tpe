@@ -1,6 +1,6 @@
 let html = document.querySelector("footer");
 html.innerHTML = `
-<footer class="footer">
+
      <ul class="items-footer">
         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -10,5 +10,5 @@ html.innerHTML = `
     
     <p class="devs">Desarrollado por <a href="#">Grupo 1 - IMS</a></p>
     
-</footer>
+
 `;
