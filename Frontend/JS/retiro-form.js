@@ -1,5 +1,5 @@
 
-let main = document.querySelector("#carousel")
+let main = document.querySelector("#formulario")
 
 let response = await fetch('./js/retiro-form.html');
 if (!response.ok) {
