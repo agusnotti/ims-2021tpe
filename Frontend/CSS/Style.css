@@ -6,3 +6,43 @@
 .nav-link:hover{
     font-weight: bold;
 }
+
+
+/*-------------------------- FOOTER -----------------------*/
+.footer {
+	margin: 0;	
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+  
+.items-footer {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+    background-color: #84cb33;
+}
+  
+.items-footer li {
+	margin: 8px 15px;
+	padding: 5px;
+	color: #08465f;
+	font-size: 30px;
+}
+
+.items-footer a{
+    color: #08465f;  
+}
+
+.items-footer a:hover{
+    color: white;  
+}
+
+.devs{
+    background-color: #08465f;
+    color: white;
+    margin-bottom: 0;
+    text-align: center;
+}
