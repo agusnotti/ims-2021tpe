@@ -40,9 +40,18 @@
     color: white;  
 }
 
+.carousel-item img{
+	width: 50%;
+	height: 50%;
+}
+
 .devs{
     background-color: #08465f;
     color: white;
     margin-bottom: 0;
     text-align: center;
+}
+
+.carousel-inner{
+	text-align: center;
 }
