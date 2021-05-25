@@ -11,20 +11,20 @@ html.innerHTML = `
             
                         <li class="materials" data-title='plastico'>
                         
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_1.jpg?id=60aac4bd99664" alt="plastico">
+                            <img class="materials-img" src="./Assets/Images/plastico.jpg" alt="plastico">
                             
                         
                         </li>
                         
                         <li class="materials" data-title='papel'>
                             
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_5.jpg?id=60aac4bd998e5" alt="papel">
+                            <img class="materials-img" src="./Assets/Images/papel.jpg" alt="papel">
                         
             
                         </li>
                         <li class="materials" data-title='tetrabrik'>
 
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_2.jpg?id=60aac4bd997ae" alt="tetra-brik">
+                            <img class="materials-img" src="./Assets/Images/tetra.jpg" alt="tetra-brik">
                         
                         </li>
                     </ul>    
@@ -33,17 +33,17 @@ html.innerHTML = `
                     <ul>
                         <li class="materials" data-title='vidrio'>
 
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_6.jpg?id=60aac4bd99a2f" alt="vidrio">
+                            <img class="materials-img" src="./Assets/Images/vidrio.jpg" alt="vidrio">
                         
                         </li>
                         <li class="materials" data-title='tapitas'>
 
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_8.jpg?id=60aac4bd99c71" alt="tapitas">
+                            <img class="materials-img" src="./Assets/Images/tapitas.jpg" alt="tapitas">
                         
                         </li>
                         <li class="materials" data-title='pilas'>
                         
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_10.jpg?id=60aac4bd99ded" alt="pilas">
+                            <img class="materials-img" src="./Assets/Images/pilas.jpg" alt="pilas">
                         
                         </li>
             
@@ -54,18 +54,18 @@ html.innerHTML = `
                     <ul>   
                         <li class="materials" data-title='neumaticos'>
                             
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_11.jpg?id=60aac4bd99f17" alt="neumaticos">
+                            <img class="materials-img" src="./Assets/Images/neumaticos.jpg" alt="neumaticos">
                         
             
                         </li>
                         <li class="materials" data-title='electrodomesticos'>
 
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_12.jpg?id=60aac4bd9a037" alt="electrodomesticos">
+                            <img class="materials-img" src="./Assets/Images/electrodomesticos.jpg" alt="electrodomesticos">
                         
                         </li>
                         <li class="materials" data-title='ropa'>
 
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_14.jpg?id=60aac4bd9a25b" alt="ropa">
+                            <img class="materials-img" src="./Assets/Images/ropa.jpg" alt="ropa">
                         
                         </li>
                       
@@ -74,8 +74,8 @@ html.innerHTML = `
                 
             </div>
             <div class="content">
-                <h2 id="m-title"></h2>
-                <p id="m-description"></p>
+                <h2 id="m-title">Plastico</h2>
+                <p id="m-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             
         </div>
@@ -130,7 +130,7 @@ const MATERIALES = {
     }
 }
 
-let items = document.querySelectorAll('li');
+let items = document.querySelectorAll('.materials');
 items.forEach(item => item.addEventListener('click', () => getInformation(item.dataset.title)));
 
 
