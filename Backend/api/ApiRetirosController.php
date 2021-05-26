@@ -26,13 +26,19 @@ class ApiRetirosController{
     }
 
     public function InsertarRetiro(){
-        $contenido = $this->getData();
-        $success = $this->model->insertRetiro($contenido->nombre, $contenido->apellido, $contenido->direccion, $contenido->telefono,$contenido->franja_horaria,$contenido->volumen_materiales,$contenido->foto,0);
-        if($success){
-            $msg = "El Retiro fue agregado con exito";
-            $this->view->response($msg, 200);
-        } else {
-            $this->view->response("El Retiro no se pudo agregar", 500);
+        $random = rand(1,10);
+
+        if($random <= 8){
+            $contenido = $this->getData();
+            $success = $this->model->insertRetiro($contenido->nombre, $contenido->apellido, $contenido->direccion, $contenido->telefono,$contenido->franja_horaria,$contenido->volumen_materiales,$contenido->foto,0);
+            if($success){
+                $msg = "El Retiro fue agregado con exito";
+                $this->view->response($msg, 200);
+            } else {
+                $this->view->response("El Retiro no se pudo agregar", 500);
+            }
+        }else {
+            $this->view->response("La distancia supera los 6km",200);
         }
     }
 
