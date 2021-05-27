@@ -1,0 +1,41 @@
+.modal-body{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#photo img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.modal-dialog{
+    max-width: 600px;
+}
+
+.modal-header{
+    background-color: #08465f;
+    color: aliceblue;
+}
+
+
+.modal-footer{
+    background-color: #84cb33;
+    color: aliceblue;
+}
+
+.modal-footer .btn-secondary{
+    background-color: #08465f;
+    color: aliceblue;
+}
+
+.alert{
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#inner-message {
+    margin: 0 auto;
+}
