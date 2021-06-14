@@ -1,0 +1,18 @@
+{
+    "name": "geronimo/backend",
+    "autoload": {
+        "psr-4": {
+            "Geronimo\\Backend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Geronimo Anselmo",
+            "email": "geronimoalejandroanselmo@gmail.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.49",
+        "shuchkin/simplexlsxgen": "^1.0"
+    }
+}
