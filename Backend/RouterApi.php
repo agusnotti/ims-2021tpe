@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php';
 include_once 'api/ApiRetirosController.php';
 include_once 'Model/RetirosModel.php';
 include_once 'RouterClass.php';
@@ -11,8 +12,9 @@ if($_SERVER["REQUEST_METHOD"] == "OPTIONS") exit();
 
 $r = new Router();
 
-$r->addRoute('retiros', 'POST', 'ApiRetirosController', 'InsertarRetiro');
-$r->addRoute('retiros', 'GET', 'ApiRetirosController', 'ObtenerRetiros');
+$r->addRoute('retiros', 'POST', 'ApiRetirosController', 'insertarRetiro');
+$r->addRoute('retiros', 'GET', 'ApiRetirosController', 'obtenerRetiros');
+$r->addRoute('retiros/reporte', 'GET', 'ApiRetirosController', 'generarReporte');
 $r->addRoute('retiros/:ID', 'GET', 'ApiRetirosController', 'getRetiroById');
 $r->addRoute('retiros/:ID', 'DELETE', 'ApiRetirosController', 'deleteRetiroById');
 
