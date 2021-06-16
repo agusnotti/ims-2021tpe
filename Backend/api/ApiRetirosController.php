@@ -1,7 +1,7 @@
 <?php
 
-include_once 'ApiView.php';
-include_once 'ApiExcelDownload.php';
+include_once 'responses/ApiView.php';
+include_once 'responses/ApiExcelDownload.php';
 include_once 'Model/RetirosModel.php';
 
 class ApiRetirosController
