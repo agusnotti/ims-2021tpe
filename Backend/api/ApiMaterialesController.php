@@ -14,7 +14,7 @@ class ApiMaterialesController
         $this->model = new MaterialesModel();
         $this->view = new APIView();
         $this->excelView = new APIExcelDownload();
-        $this->data = file_get_contents ('php://input');
+        $this->data = file_get_contents('php://input');
     }
 
     public function getData()
@@ -24,33 +24,33 @@ class ApiMaterialesController
 
     public function obtenerMateriales()
     {
-        $retiros = $this->model->getMateriales();
-        $this->view->response($retiros, 200);
+        $materiales = $this->model->getMateriales();
+        $this->view->response($materiales, 200);
         //SI NO HAY COMENTARIOS
     }
 
-    public function insertarRetiro()
+    public function insertarMaterial()
     {
-            $contenido = $this->getData();
-            $success = $this->model->insertMaterial($contenido->nombre, $contenido->apellido, $contenido->direccion, $contenido->telefono, $contenido->franja_horaria, $contenido->volumen_materiales, $contenido->foto, 0);
-            if ($success) {
-                $msg = "El Retiro fue agregado con exito";
-                $this->view->response($msg, 200);
-            } else {
-                $this->view->response("El Retiro no se pudo agregar", 500);
-            }
-     }
+        $contenido = $this->getData();
+        $success = $this->model->insertMaterial($contenido->nombre, $contenido->entrega, $contenido->descripcion, $contenido->foto);
+        if ($success) {
+            $msg = "El Material fue agregado con exito";
+            $this->view->response($msg, 200);
+        } else {
+            $this->view->response("El Material no se pudo agregar", 500);
+        }
+    }
 
-    public function getRetiroById($params = null)
+    public function getMaterialById($params = null)
     {
         if (isset($params[':ID'])) {
             $id = $params[':ID'];
-            $retiro = $this->model->getMaterialById($id);
+            $material = $this->model->getMaterialById($id);
 
-            if (!empty($retiro)) {
-                $this->view->response($retiro, 200);
+            if (!empty($material)) {
+                $this->view->response($material, 200);
             } else {
-                $this->view->response("No existen retiros para el id = $id", 404);
+                $this->view->response("No existen Material para el id = $id", 404);
             }
         } else {
             $this->view->response("No estaba seteado el id", 500);
@@ -61,11 +61,35 @@ class ApiMaterialesController
     {
         if (isset($params[':ID'])) {
             $id = $params[':ID'];
-            $retiro = $this->model->deleteMaterialById($id);
-            
-            if (!empty($retiro)) {
+            $material = $this->model->deleteMaterialById($id);
+
+            if (!empty($material)) {
                 $msg = "El Material con id: $id fue eliminado con éxito";
                 $this->view->response($msg, 200);
+            } else {
+                $this->view->response("No existen Materiales para el id = $id", 404);
+            }
+        } else {
+            $this->view->response("No estaba seteado el id", 500);
+        }
+    }
+
+
+    public function editMaterialById($params = null)
+    {
+        if (isset($params[':ID'])) {
+            $id = $params[':ID'];
+            $material = $this->model->getMaterialById($id);
+            if (!empty($material)) {
+                $contenido = $this->getData();
+                $success = $this->model-> modifyMaterial($id,$contenido->nombre, $contenido->entrega, $contenido->descripcion, $contenido->foto);
+                if ($success==0) {
+                    $msg = "El Material fue modificado con exito";
+                    $this->view->response($msg, 200);
+                } else {
+                    $this->view->response("El Material no se pudo modificar", 400);
+                }
+               
             } else {
                 $this->view->response("No existen Materiales para el id = $id", 404);
             }

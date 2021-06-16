@@ -10,7 +10,7 @@ class MaterialesModel extends Model{
     }
 
     function insertMaterial($nombre,$entrega,$descripcion,$foto){
-        $sentencia = $this->db->prepare("INSERT INTO peticion_retiros(nombre,entrega,descripcion,foto) VALUES(?,?,?,?)");
+        $sentencia = $this->db->prepare("INSERT INTO materiales(nombre,entrega,descripcion,foto) VALUES(?,?,?,?)");
         $sentencia->execute(array($nombre,$entrega,$descripcion,$foto));
         return $this->db->lastInsertId();
     }
@@ -25,6 +25,12 @@ class MaterialesModel extends Model{
     function deleteMaterialById($id){
         $sentencia = $this->db->prepare('DELETE FROM materiales WHERE id=?');
         $sentencia->execute(array($id));
+        return $sentencia->rowCount();
+    }
+
+    function modifyMaterial($id,$nombre =null,$entrega,$descripcion,$foto){
+        $sentencia = $this->db->prepare("UPDATE materiales SET nombre=?, entrega=?, descripcion=?, foto=? WHERE id=?");
+        $sentencia->execute(array($nombre,$entrega,$descripcion,$foto,$id));
         return $sentencia->rowCount();
     }
 

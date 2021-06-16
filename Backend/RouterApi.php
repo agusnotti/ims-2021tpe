@@ -22,7 +22,12 @@ $r->addRoute('retiros/:ID', 'GET', 'ApiRetirosController', 'getRetiroById');
 $r->addRoute('retiros/:ID', 'DELETE', 'ApiRetirosController', 'deleteRetiroById');
 
 
+$r->addRoute('materiales', 'GET', 'ApiMaterialesController', 'obtenerMateriales');
 $r->addRoute('materiales/:ID', 'DELETE', 'ApiMaterialesController', 'deleteMaterialById');
+$r->addRoute('materiales/:ID', 'GET', 'ApiMaterialesController', 'getMaterialById');
+$r->addRoute('materiales', 'POST', 'ApiMaterialesController', 'insertarMaterial');
+$r->addRoute('materiales/:ID', 'PATCH', 'ApiMaterialesController', 'editMaterialById');
+
 
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
