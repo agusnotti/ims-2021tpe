@@ -19,11 +19,23 @@
 
 
 .modal-footer{
-    background-color: #08465f;
+    background-color: #84cb33;
     color: aliceblue;
 }
 
 .modal-footer .btn-secondary{
     background-color: #08465f;
     color: aliceblue;
+}
+
+.alert{
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#inner-message {
+    margin: 0 auto;
 }

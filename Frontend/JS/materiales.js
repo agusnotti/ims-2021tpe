@@ -1,85 +1,12 @@
 let html = document.querySelector('#materiales');
-html.innerHTML = `
-<h4 id="materiales-title">Elegí qué reciclar y te mostramos cómo</h2>
-        <div class="container">
-        
+let response = await fetch('../Pages/materiales.html');
+if (!response.ok) {
+  throw new Error(`HTTP error! status: ${response.status}`);
+} else {
+  let mytext = await response.text();
 
-            <div class="items-container">
-                
-                <div class="items-columns">
-                    <ul>
-            
-                        <li class="materials" data-title='plastico'>
-                        
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_1.jpg?id=60aac4bd99664" alt="plastico">
-                            
-                        
-                        </li>
-                        
-                        <li class="materials" data-title='papel'>
-                            
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_5.jpg?id=60aac4bd998e5" alt="papel">
-                        
-            
-                        </li>
-                        <li class="materials" data-title='tetrabrik'>
-
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_2.jpg?id=60aac4bd997ae" alt="tetra-brik">
-                        
-                        </li>
-                    </ul>    
-                </div>
-                <div class="items-columns">
-                    <ul>
-                        <li class="materials" data-title='vidrio'>
-
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_6.jpg?id=60aac4bd99a2f" alt="vidrio">
-                        
-                        </li>
-                        <li class="materials" data-title='tapitas'>
-
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_8.jpg?id=60aac4bd99c71" alt="tapitas">
-                        
-                        </li>
-                        <li class="materials" data-title='pilas'>
-                        
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_10.jpg?id=60aac4bd99ded" alt="pilas">
-                        
-                        </li>
-            
-                    </ul>
-                </div>
-                <div class="items-columns">
-                    
-                    <ul>   
-                        <li class="materials" data-title='neumaticos'>
-                            
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_11.jpg?id=60aac4bd99f17" alt="neumaticos">
-                        
-            
-                        </li>
-                        <li class="materials" data-title='electrodomesticos'>
-
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_12.jpg?id=60aac4bd9a037" alt="electrodomesticos">
-                        
-                        </li>
-                        <li class="materials" data-title='ropa'>
-
-                            <img class="materials-img" src="https://www.dondereciclo.org.ar/uploads/images/donde_reciclo_categories_14.jpg?id=60aac4bd9a25b" alt="ropa">
-                        
-                        </li>
-                      
-                    </ul>
-                </div>
-                
-            </div>
-            <div class="content">
-                <h2 id="m-title"></h2>
-                <p id="m-description"></p>
-            </div>
-            
-        </div>
-`
+  html.innerHTML = mytext
+}
 
 
 const MATERIALES = {
@@ -130,7 +57,7 @@ const MATERIALES = {
     }
 }
 
-let items = document.querySelectorAll('li');
+let items = document.querySelectorAll('.materials');
 items.forEach(item => item.addEventListener('click', () => getInformation(item.dataset.title)));
 
 

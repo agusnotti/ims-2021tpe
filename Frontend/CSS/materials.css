@@ -39,6 +39,7 @@ p{
     width: 1000px;
     align-content: flex-start;
     margin:30px;
+    justify-content: space-between;
 }
 
 .content{
@@ -58,6 +59,7 @@ p{
     flex-direction: column;
     height: auto;
     width: auto;
+    align-items: center;
 }
 
 #materiales-title{
