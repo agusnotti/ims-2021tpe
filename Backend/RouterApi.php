@@ -29,5 +29,7 @@ $r->addRoute('materiales', 'POST', 'ApiMaterialesController', 'insertarMaterial'
 $r->addRoute('materiales/:ID', 'PATCH', 'ApiMaterialesController', 'editMaterialById');
 
 
+$r->addRoute('pesajes', 'POST', 'ApiPesajesController', 'insertarPesaje');
+
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
