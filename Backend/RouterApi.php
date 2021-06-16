@@ -1,8 +1,11 @@
 <?php
 require 'vendor/autoload.php';
-include_once 'api/ApiRetirosController.php';
-include_once 'Model/RetirosModel.php';
 include_once 'RouterClass.php';
+foreach (glob("api/*.php") as $filename) {
+    include $filename;
+}
+
+
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
@@ -17,6 +20,9 @@ $r->addRoute('retiros', 'GET', 'ApiRetirosController', 'obtenerRetiros');
 $r->addRoute('retiros/reporte', 'GET', 'ApiRetirosController', 'generarReporte');
 $r->addRoute('retiros/:ID', 'GET', 'ApiRetirosController', 'getRetiroById');
 $r->addRoute('retiros/:ID', 'DELETE', 'ApiRetirosController', 'deleteRetiroById');
+
+
+$r->addRoute('materiales/:ID', 'DELETE', 'ApiMaterialesController', 'deleteMaterialById');
 
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
