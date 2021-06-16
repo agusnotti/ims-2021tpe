@@ -10,7 +10,7 @@ class MaterialesModel extends Model{
     }
 
     function insertMaterial($nombre,$entrega,$descripcion,$foto){
-        $sentencia = $this->db->prepare("INSERT INTO peticion_retiros(nombre,entrega,descripcion,foto) VALUES(?,?,?,?)");
+        $sentencia = $this->db->prepare("INSERT INTO materiales(nombre,entrega,descripcion,foto) VALUES(?,?,?,?)");
         $sentencia->execute(array($nombre,$entrega,$descripcion,$foto));
         return $this->db->lastInsertId();
     }
