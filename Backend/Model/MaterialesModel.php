@@ -28,4 +28,10 @@ class MaterialesModel extends Model{
         return $sentencia->rowCount();
     }
 
+    function modifyMaterial($id,$nombre =null,$entrega,$descripcion,$foto){
+        $sentencia = $this->db->prepare("UPDATE materiales SET nombre=?, entrega=?, descripcion=?, foto=? WHERE id=?");
+        $sentencia->execute(array($nombre,$entrega,$descripcion,$foto,$id));
+        return $sentencia->rowCount();
+    }
+
 }
