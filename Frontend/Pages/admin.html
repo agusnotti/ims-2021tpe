@@ -22,16 +22,11 @@
                     <img src="../Assets/Images/logo3.png" alt="" class="bi me-2" width="80" height="72" role="img">
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-white" data-bs-toggle="modal"
-                            data-bs-target="#myModal">Retirar materiales</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Materiales ¿Cómo entregarlos?</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Oferta de Transporte</a></li>
+                    <li>Cooperativa de reciclaje
+                    <li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
-                        aria-label="Search">
-                </form>
+
 
                 <div class="text-end">
                     <a href="../index.html"><button type="button" id="btn-admin"
@@ -44,6 +39,29 @@
     <main>
         <div class="container-fluid">
             <h1>Materiales</h1>
+
+           
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" id="tipo-material" class="form-control" placeholder="Tipo material">
+                    </div>
+                    <div class="col">
+                        <input type="text" id="descripcion" class="form-control" placeholder="Descripción">
+                    </div>
+                    <div class="col">
+                        <input type="text" id="req-entrega" class="form-control" placeholder="Requsitos de entrega">
+                    </div>
+                    <div class="col">
+                        <input type="file"  id="imagen" class="form-control" placeholder="Imagen">
+                    </div>
+                    <div class="col">
+                        <button id="btn-agregar" class="btn btn-warning">Agregar</button>
+                    </div>
+                </div>
+            </form>
+
+
             <table id="tabla-materiales" class="table table-striped">
                 <thead>
                     <tr class="table-row">
