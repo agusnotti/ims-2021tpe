@@ -1,6 +1,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    
     const urlBase = "http://localhost/api";
     const urlMateriales = "/materiales";
     let table = document.getElementById('body-tabla');
