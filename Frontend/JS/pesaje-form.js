@@ -30,13 +30,13 @@ function allCompleted() {
     else {
         let vacio = true;
         selectors.forEach((element) => {
-            console.log(element.value == "")
+
             if (element.value == "") {
                 vacio = false;
             }
         })
         kilos.forEach((element) => {
-            console.log(element.value == "")
+
             if (element.value == "") {
                 vacio = false;
             }
@@ -56,13 +56,16 @@ function createLine() {
 
     if (allCompleted()) {
         let newDiv = document.createElement("div")
+        newDiv.classList.add("row")
+        newDiv.classList.add("input-group")
+        newDiv.classList.add("mb-2")
         newDiv.innerHTML = `
-        <div class="row input-group mb-2" id="linea">
+
             <select class="form-select form-control materiales"  >
                 <option></option>
             </select>
             <input type="number" class="form-control kilos" placeholder="Kilos">
-        </div>
+  
         `
         lineas.append(newDiv)
 
@@ -94,6 +97,7 @@ function createLine() {
                 materiales.forEach(element => {
 
                     let option = document.createElement("option")
+                    option.setAttribute("data-value", element.id)
                     option.innerHTML = element.nombre
                     selector.append(option)
 
@@ -113,7 +117,7 @@ let completo = document.querySelector("#completo")
 dni.addEventListener("change", function (e) {
     cartoneros.forEach(data => {
         if (data.dni == e.target.value) {
-            completo.value = data.apellido +", "+data.nombre
+            completo.value = data.apellido + ", " + data.nombre
         }
     })
 
@@ -138,3 +142,54 @@ const cartoneros = [{
     apellido: "Anselmo"
 }]
 
+const btnInscripcion = document.querySelector("#inscription");
+btnInscripcion.addEventListener("click", sendMateriales)
+
+function sendMateriales() {
+
+    let lineasAEnviar = [];
+    let lineasNode = lineas.querySelectorAll("div")
+
+    lineasNode.forEach(element => {
+
+        let select = element.querySelector("select")
+
+        let materialId = select.querySelectorAll("option")[select.selectedIndex].getAttribute("data-value");
+        let kilos = element.querySelector("input")
+
+        if (kilos.value.length != 0 && materialId != null) {
+            let data = {
+
+                material: materialId,
+                cartonero: null,
+                kilos: kilos.value
+            }
+            lineasAEnviar.push(data)
+        }
+
+
+
+    })
+
+    lineasAEnviar.forEach(async (e) => {
+        console.log(JSON.stringify(e))
+        let response = await fetch('http://localhost/api/pesajes', {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
+            body: JSON.stringify(e)
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+            let mytext = await response.text();
+
+            console.log(mytext)
+        }
+    })
+}
