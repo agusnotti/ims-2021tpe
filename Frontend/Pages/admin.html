@@ -22,9 +22,8 @@
                     <img src="../Assets/Images/logo3.png" alt="" class="bi me-2" width="80" height="72" role="img">
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li class="nav-link px-2 text-white">Cooperativa de reciclaje<li>
-                    <li><a href="#" class="nav-link px-2 text-white" data-bs-toggle="modal"
-                            data-bs-target="#myModal">Pesaje materiales</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Cooperativa de reciclaje</a></li>
+                    <li id="extraerRetiros"> <a href="#" class="nav-link px-2 text-white"> Extraer Retiros</a></li>
                 </ul>
 
 
@@ -38,13 +37,11 @@
     </header>
 
     <main>
-        <div id="pesaje">
 
-        </div>
         <div class="container-fluid">
             <h1>Materiales</h1>
 
-           
+
             <form>
                 <div class="row">
                     <div class="col">
@@ -57,7 +54,7 @@
                         <input type="text" id="req-entrega" class="form-control" placeholder="Requsitos de entrega">
                     </div>
                     <div class="col">
-                        <input type="file"  id="imagen" class="form-control" placeholder="Imagen">
+                        <input type="file" id="imagen" class="form-control" placeholder="Imagen">
                     </div>
                     <div class="col">
                         <button id="btn-agregar" class="btn btn-warning">Agregar</button>
@@ -103,5 +100,6 @@
     crossorigin="anonymous"></script>
 
 <script src="../JS/admin.js" type="module"></script>
-<script src="../JS/pesaje-form.js" type="module"></script>
+<script src="../JS/extraccion.js" type="module"></script>
+
 </html>
