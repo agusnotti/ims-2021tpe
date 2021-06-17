@@ -2,61 +2,86 @@
 
 /*--------------------------HEADER -----------------------*/
 
-
-.header{
-    background-color: #08465f;
+.header {
+  background-color: #08465f;
 }
 
-.nav-link:hover{
-    font-weight: bold;
+.nav-link:hover {
+  font-weight: bold;
 }
-
 
 /*-------------------------- FOOTER -----------------------*/
 .footer {
-	margin: 0;	
-	position: relative;
-	bottom: 0;
-	width: 100%;
+  margin: 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
-  
+
 .items-footer {
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-    background-color: #84cb33;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #84cb33;
 }
-  
+
 .items-footer li {
-	margin: 8px 15px;
-	padding: 5px;
-	color: #08465f;
-	font-size: 30px;
+  margin: 8px 15px;
+  padding: 5px;
+  color: #08465f;
+  font-size: 30px;
 }
 
-.items-footer a{
-    color: #08465f;  
+.items-footer a {
+  color: #08465f;
 }
 
-.items-footer a:hover{
-    color: white;  
+.items-footer a:hover {
+  color: white;
 }
 
-.carousel-item img{
-	width: 50%;
-	height: 50%;
-	margin-bottom: 30px;
+.carousel-item img {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 30px;
 }
 
-.devs{
-    background-color: #08465f;
-    color: white;
-    margin-bottom: 0;
-    text-align: center;
+.devs {
+  background-color: #08465f;
+  color: white;
+  margin-bottom: 0;
+  text-align: center;
 }
 
-.carousel-inner{
-	text-align: center;
+.carousel-inner {
+  text-align: center;
+}
+
+.table-row {
+  background-color: #84cb33;
+}
+
+.btn-tabla-borrar, .btn-tabla-editar{
+  background-color: #026278;
+}
+
+.btn-tabla-borrar,
+.btn-tabla-editar {
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 1px;
+}
+
+.btn-actions{
+	vertical-align: middle;
+}
+
+
+#tabla-materiales{
+	margin-top: 20px;
 }
