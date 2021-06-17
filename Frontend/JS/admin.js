@@ -3,12 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const urlMateriales = "/materiales";
   let table = document.getElementById("body-tabla");
   let btnAgregar = document.getElementById("btn-agregar");
+  let btnEditar = document.getElementById("btn-editar");
+  let btnCancelar = document.getElementById("btn-cancelar");
   let tipoMaterial = document.getElementById("tipo-material");
   let descripcion = document.getElementById("descripcion");
   let reqEntrega = document.getElementById("req-entrega");
   let imagen = document.getElementById("imagen");
 
   btnAgregar.addEventListener("click", agregarMaterial);
+  btnCancelar.addEventListener("click", cancelarEditar);
 
   getMateriales();
 
@@ -46,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
     btnEliminar.addEventListener("click", function () {
       borrarMaterial(id);
     });
+
+    btnEditar.addEventListener("click", function () {
+        renderEditarMaterial(material);
+      });
 
     td1.innerText = material.nombre;
     td2.innerText = material.descripcion;
@@ -116,6 +123,60 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(function () {
         document.getElementById(id).remove();
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function renderEditarMaterial(material) {
+    tipoMaterial.value = material.nombre;
+    descripcion.value = material.descripcion;
+    reqEntrega.value = material.entrega;
+
+    btnEditar.dataset.idMaterial = material.id;
+    btnEditar.addEventListener('click', editarMaterial);
+    btnEditar.hidden = false;
+    btnCancelar.hidden = false;
+    btnAgregar.hidden = true;
+  }
+
+  function cancelarEditar(event) {
+    event.preventDefault();
+    
+    btnEditar.hidden = true;
+    btnCancelar.hidden = true;
+    btnAgregar.hidden = false;
+
+    tipoMaterial.value = '';
+    descripcion.value = '';
+    reqEntrega.value = '';
+  }
+
+  function editarMaterial(event) {
+    //event.preventDefault();
+    let material = {
+        nombre: tipoMaterial.value,
+        descripcion: descripcion.value,
+        entrega: reqEntrega.value,
+        foto: null,
+    };
+
+    fetch(urlBase + urlMateriales + '/' + btnEditar.dataset.idMaterial, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(material),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          //showError("ERROR AL AGREGAR M");
+        } else {
+          return response.json();
+        }
+      })
+      .then((json) => {
+        //material.id = json;
+        //renderRow(material);
       })
       .catch((error) => console.log(error));
   }

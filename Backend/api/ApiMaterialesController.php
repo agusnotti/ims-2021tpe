@@ -82,7 +82,7 @@ class ApiMaterialesController
             $material = $this->model->getMaterialById($id);
             if (!empty($material)) {
                 $contenido = $this->getData();
-                $success = $this->model-> modifyMaterial($id,$contenido->nombre, $contenido->entrega, $contenido->descripcion, $contenido->foto);
+                $success = $this->model->modifyMaterial($id,$contenido->nombre, $contenido->entrega, $contenido->descripcion, $contenido->foto);
                 if ($success==0) {
                     $msg = "El Material fue modificado con exito";
                     $this->view->response($msg, 200);
