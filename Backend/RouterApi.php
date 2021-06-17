@@ -26,7 +26,7 @@ $r->addRoute('materiales', 'GET', 'ApiMaterialesController', 'obtenerMateriales'
 $r->addRoute('materiales/:ID', 'DELETE', 'ApiMaterialesController', 'deleteMaterialById');
 $r->addRoute('materiales/:ID', 'GET', 'ApiMaterialesController', 'getMaterialById');
 $r->addRoute('materiales', 'POST', 'ApiMaterialesController', 'insertarMaterial');
-$r->addRoute('materiales/:ID', 'PATCH', 'ApiMaterialesController', 'editMaterialById');
+$r->addRoute('materiales/:ID', 'PUT', 'ApiMaterialesController', 'editMaterialById');
 
 
 $r->addRoute('pesajes', 'POST', 'ApiPesajesController', 'insertarPesaje');
