@@ -1,33 +1,22 @@
 <?php
-
-include_once 'responses/ApiView.php';
 include_once 'responses/ApiExcelDownload.php';
 include_once 'Model/RetirosModel.php';
 
-class ApiRetirosController
+class ApiRetirosController extends ApiController
 {
-    private $model;
-    private $view;
-    private $data;
 
     public function __construct()
     {
+        parent::__construct();  
         $this->model = new RetirosModel();
-        $this->view = new APIView();
         $this->excelView = new APIExcelDownload();
-        $this->data = file_get_contents('php://input');
-    }
 
-    public function getData()
-    {
-        return json_decode($this->data);
     }
 
     public function obtenerRetiros()
     {
         $retiros = $this->model->getRetiros();
         $this->view->response($retiros, 200);
-        //SI NO HAY COMENTARIOS
     }
 
 
@@ -50,7 +39,7 @@ class ApiRetirosController
         $random = rand(1, 10);
 
         if ($random <= 8) {
-            $contenido = $this->getData();
+            $contenido = $this->inputData;
             $success = $this->model->insertRetiro($contenido->nombre, $contenido->apellido, $contenido->direccion, $contenido->telefono, $contenido->franja_horaria, $contenido->volumen_materiales, $contenido->foto, 0);
             if ($success) {
                 $msg = "El Retiro fue agregado con exito";
