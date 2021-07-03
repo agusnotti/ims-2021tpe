@@ -18,7 +18,7 @@ class MaterialesModel extends Model{
 
     function getMaterialByID($id){
         $sentencia = $this->db->prepare("SELECT * FROM materiales WHERE id=?");
-        $sentencia->execute(array($id));
+        $sentencia->execute($id);
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
