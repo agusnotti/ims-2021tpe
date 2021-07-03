@@ -8,11 +8,16 @@ class ApiPesajesController extends ApiController
     {
         parent::__construct();  
         $this->model = new PesajesModel();
+        $this->excelView = new APIExcelDownload();
+
 
     }
-
-
-
+    
+    public function obtenerPesajes()
+    {
+        $retiros = $this->model->getPesajes();
+        $this->view->response($retiros, 200);
+    }
     public function insertarPesaje()
     {
         $contenido = $this->inputData;
@@ -24,4 +29,31 @@ class ApiPesajesController extends ApiController
             $this->view->response("El Pesaje no se pudo agregar", 500);
         }
     }
+
+
+
+    public function obtenerAcopios()
+    {
+        $acopios = $this->model->getPesajesPorCartoneros();
+        $this->view->response($acopios, 200);
+    }
+
+    public function obtenerAcopio($params=null)
+    {
+        if (isset($params[':ID'])) {
+            $id = $params[':ID'];
+
+            $acopio = $this->model->getPesajesDeCartonero($id);
+
+            if (!empty($acopio)) {
+                $this->view->response($acopio, 200);
+            } else {
+                $this->view->response("No existen acopios para el cartonero = $id", 404);
+            }
+        } else {
+            $this->view->response("No estaba seteado el id", 500);
+        }
+    }
+
+
 }
