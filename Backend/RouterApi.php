@@ -30,7 +30,7 @@ $r->addRoute('materiales/:ID', 'PUT', 'ApiMaterialesController', 'editMaterialBy
 
 $r->addRoute('pesajes', 'POST', 'ApiPesajesController', 'insertarPesaje');
 $r->addRoute('acopios', 'GET', 'ApiPesajesController', 'obtenerAcopios');
-
+$r->addRoute('acopios/reporte', 'GET', 'ApiPesajesController', 'generarReporteAcopios');
 $r->addRoute('acopios/:ID', 'GET', 'ApiPesajesController', 'obtenerAcopio');
 
 

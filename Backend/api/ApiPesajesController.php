@@ -55,5 +55,17 @@ class ApiPesajesController extends ApiController
         }
     }
 
+    public function generarReporteAcopios()
+    {
+        $acopios = $this->model->getPesajesPorCartoneros();
 
+        $acopiosHeader=["<b>DNI</b>","<b>Apellido y nombres</b>","<b>Material</b>","<b>Kilos</b>"];
+        $acopiosArray = [$acopiosHeader];
+        foreach($acopios as $acopio )
+        {
+            array_push( $acopiosArray,[$acopio->dni,$acopio->apellido.", ".$acopio->nombre,$acopio->material,$acopio->total]);
+        }
+    
+        $this->excelView->response($acopiosArray, 200);
+    }
 }
