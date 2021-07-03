@@ -31,5 +31,12 @@ $r->addRoute('materiales/:ID', 'PUT', 'ApiMaterialesController', 'editMaterialBy
 
 $r->addRoute('pesajes', 'POST', 'ApiPesajesController', 'insertarPesaje');
 
+
+
+$r->addRoute('login', 'POST', 'ApiUsersController', 'login');
+$r->addRoute('logout', 'POST', 'ApiUsersController', 'logout');
+$r->addRoute('register', 'POST', 'ApiUsersController', 'register');
+$r->addRoute('session', 'GET', 'ApiUsersController', 'userSession');
+
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
