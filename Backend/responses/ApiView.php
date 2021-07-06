@@ -6,6 +6,7 @@ class APIView{
     public function response($data, $status){
         header('Content-type: application/json');
         header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
+        header('Access-Control-Allow-Origin: *');
         echo json_encode($data);
     }
 

@@ -35,14 +35,7 @@
             </div>
         </div>
     </header>
-    
-    <!-- <div id="container-tabs" class="container-tabs">
-        <ul class="tabs">
-            <li><a href="admin.html">Materiales</a></li>
-            <li><a href="abm-cartoneros.html">Cartoneros</a></li>
-            <li><a href="acopioMateriales.html">Acopio de Materiales</a></li>
-        </ul>
-    </div> -->
+
 
     <ul class="tabs nav nav-tabs">
         <li class="nav-item">
@@ -55,13 +48,107 @@
             <a class="nav-link" href="acopioMateriales.html">Acopio de Materiales</a>
         </li>
     </ul>
-    
+
 
     <main>
 
-        <h1>ABM CARTONEROS - en construcción</h1>
+        <div class="title-container">
+            <h2>Agregar Recolector</h2>
+            <button id="btn-agregar-cartonero" class="btn btn-warning m-2" data-bs-toggle="modal"
+                data-bs-target="#myModal"><i class="fas fa-plus"></i> Agregar</button>
+        </div>
 
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header p-4">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Recolector</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="#" class="form-abm-materiales">
+
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Nombre: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="nombre" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Apellido: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="apellido" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Documento: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="documento" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Direccion: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="direccion" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Fecha de Nacimiento: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" id="dob" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    
+                                    <label class="col-form-label">Vehiculo: </label>
+                                </div>
+                                <div class="col-9">
+                                    <select name="vahiculo" id="vehiculo" class="form-control" >
+                                        <option selected="true" disabled="disabled">Seleccione su tipo de vehiculo</option>
+                                        <option value="Auto">Auto</option>
+                                        <option value="Camioneta">Camioneta</option>
+                                        <option value="Camion">Camión</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Capacidad: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="capacidad" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-cancelar"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-agregar"
+                            data-bs-dismiss="modal">Agregar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-editar"
+                            data-bs-dismiss="modal">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+
+
     <footer class="footer">
         <ul class="items-footer">
             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
@@ -78,7 +165,7 @@
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
 
-
+    <script src="../JS/abmCartoneros.js" type="module"></script>
 <script src="../JS/extraccion.js" type="module"></script>
 
 </html>

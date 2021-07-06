@@ -1,6 +1,6 @@
 
 <?php
-include_once 'api/ApiController.php';
+include_once 'ApiController.php';
 include_once 'Model/UsersModel.php';
 
 

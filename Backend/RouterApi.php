@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 include_once 'RouterClass.php';
+include_once 'ApiController.php';
 foreach (glob("api/*.php") as $filename) {
     include $filename;
 }
@@ -38,6 +39,12 @@ $r->addRoute('login', 'POST', 'ApiUsersController', 'login');
 $r->addRoute('logout', 'POST', 'ApiUsersController', 'logout');
 $r->addRoute('register', 'POST', 'ApiUsersController', 'register');
 $r->addRoute('session', 'GET', 'ApiUsersController', 'userSession');
+
+
+$r->addRoute('cartoneros', 'GET', 'ApiCartonerosController', 'obtenerCartoneros');
+$r->addRoute('cartoneros/:ID', 'GET', 'ApiCartonerosController', 'getCartoneroById');
+$r->addRoute('cartoneros', 'POST', 'ApiCartonerosController', 'insertarCartonero');
+$r->addRoute('cartoneros/:ID', 'DELETE', 'ApiCartonerosController', 'deleteCartoneroById');
 
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

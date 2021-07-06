@@ -9,9 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let descripcion = document.getElementById("descripcion");
   let reqEntrega = document.getElementById("req-entrega");
   let imagen = document.getElementById("imagen");
+  let btnAgregarMateriales = document.getElementById("btn-agregar-materiales");
 
   btnAgregar.addEventListener("click", agregarMaterial);
-  btnCancelar.addEventListener("click", cancelarEditar);
+  //btnCancelar.addEventListener("click", cancelarEditar);
+
+  btnAgregarMateriales.addEventListener("click", ()=>{
+    btnEditar.hidden = true;
+  })
 
   getMateriales();
 
@@ -69,6 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
     btnEditar.innerHTML = '<i class="fas fa-edit"></i>';
     btnEliminar.classList.add("btn-tabla-borrar");
     btnEditar.classList.add("btn-tabla-editar");
+    btnEditar.setAttribute ('data-bs-toggle', 'modal'); 
+    btnEditar.setAttribute ('data-bs-target', '#myModal'); 
+
+    
     td4.classList.add("btn-actions");
     td4.appendChild(btnEliminar);
     td4.appendChild(btnEditar);
@@ -138,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btnAgregar.hidden = true;
   }
 
-  function cancelarEditar(event) {
+  /* function cancelarEditar(event) {
     event.preventDefault();
 
     btnEditar.hidden = true;
@@ -148,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tipoMaterial.value = "";
     descripcion.value = "";
     reqEntrega.value = "";
-  }
+  } */
 
   function editarMaterial(event) {
     event.preventDefault();
