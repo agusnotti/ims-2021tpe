@@ -35,14 +35,7 @@
             </div>
         </div>
     </header>
-    
-    <!-- <div id="container-tabs" class="container-tabs">
-        <ul class="tabs">
-            <li><a href="admin.html">Materiales</a></li>
-            <li><a href="abm-cartoneros.html">Cartoneros</a></li>
-            <li><a href="acopioMateriales.html">Acopio de Materiales</a></li>
-        </ul>
-    </div> -->
+
 
     <ul class="tabs nav nav-tabs">
         <li class="nav-item">
@@ -55,13 +48,93 @@
             <a class="nav-link" href="acopioMateriales.html">Acopio de Materiales</a>
         </li>
     </ul>
-    
+
 
     <main>
 
-        <h1>ABM CARTONEROS - en construcción</h1>
+        <div class="title-container">
+            <h2>Agregar Materiales</h2>
+            <button id="btn-agregar-materiales" class="btn btn-warning m-2" data-bs-toggle="modal"
+                data-bs-target="#myModal"><i class="fas fa-plus"></i> Agregar</button>
+        </div>
 
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header p-4">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Material</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="#" class="form-abm-materiales">
+
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Tipo material:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="tipo-material" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Descripcion: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="descripcion" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Formas de entrega: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="req-entrega" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Imagen: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="file" id="imagen" class="form-control" placeholder="Imagen">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-cancelar"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-agregar"
+                            data-bs-dismiss="modal">Agregar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-editar"
+                            data-bs-dismiss="modal">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <table id="tabla-materiales" class="table table-striped">
+                <thead>
+                    <tr class="table-row">
+                        <th scope="col">Nombre</th>
+                        <th class="w-50" scope="col">Descripcion</th>
+                        <th scope="col">Requisitos de entrega</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="body-tabla">
+
+                </tbody>
+            </table>
+        </div>
     </main>
+
+
+
     <footer class="footer">
         <ul class="items-footer">
             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
