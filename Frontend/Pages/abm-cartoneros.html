@@ -90,7 +90,7 @@
                                     <label class="col-form-label">Documento: </label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" id="documento" class="form-control">
+                                    <input type="number" id="documento" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3  align-items-center">
@@ -111,17 +111,18 @@
                             </div>
                             <div class="row mb-3  align-items-center">
                                 <div class="col-3">
-                                    
+
                                     <label class="col-form-label">Vehiculo: </label>
                                 </div>
                                 <div class="col-9">
-                                    <select name="vahiculo" id="vehiculo" class="form-control" >
-                                        <option selected="true" disabled="disabled">Seleccione su tipo de vehiculo</option>
+                                    <select name="vahiculo" id="vehiculo" class="form-control">
+                                        <option selected="true" disabled="disabled">Seleccione su tipo de vehiculo
+                                        </option>
                                         <option value="Auto">Auto</option>
                                         <option value="Camioneta">Camioneta</option>
                                         <option value="Camion">Camión</option>
                                     </select>
-                                    
+
                                 </div>
                             </div>
                             <div class="row mb-3  align-items-center">
@@ -145,6 +146,33 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="container-fluid">
+            
+            <table id="tabla-cartoneros" class="table table-striped">
+                <thead>
+                    <tr class="table-row">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Fecha de Nacimiento</th>
+                        <th scope="col">Vehiculo</th>
+                        <th scope="col">Capacidad</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="body-tabla">
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
     </main>
 
 
@@ -165,7 +193,7 @@
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
 
-    <script src="../JS/abmCartoneros.js" type="module"></script>
+<script src="../JS/abmCartoneros.js" type="module"></script>
 <script src="../JS/extraccion.js" type="module"></script>
 
 </html>

@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     td3.innerText = material.entrega;
 
     td1.classList.add("text-justify");
-    td2.classList.add("text-justify");
+    /* td2.classList.add("text-justify"); */
     td3.classList.add("text-justify");
     td4.classList.add("text-justify");
 
