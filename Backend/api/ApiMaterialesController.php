@@ -1,26 +1,17 @@
 <?php
 
-include_once 'responses/ApiView.php';
 include_once 'Model/MaterialesModel.php';
 
-class ApiMaterialesController
+class ApiMaterialesController extends ApiController
 {
-    private $model;
-    private $view;
-    private $data;
 
     public function __construct()
     {
+        parent::__construct();  
         $this->model = new MaterialesModel();
-        $this->view = new APIView();
-        $this->excelView = new APIExcelDownload();
-        $this->data = file_get_contents('php://input');
+
     }
 
-    public function getData()
-    {
-        return json_decode($this->data);
-    }
 
     public function obtenerMateriales()
     {
@@ -31,7 +22,7 @@ class ApiMaterialesController
 
     public function insertarMaterial()
     {
-        $contenido = $this->getData();
+        $contenido = $this->inputData;
         $success = $this->model->insertMaterial($contenido->nombre, $contenido->entrega, $contenido->descripcion, $contenido->foto);
         if ($success) {
             $msg = "El Material fue agregado con exito";
@@ -81,7 +72,7 @@ class ApiMaterialesController
             $id = $params[':ID'];
             $material = $this->model->getMaterialById($id);
             if (!empty($material)) {
-                $contenido = $this->getData();
+                $contenido = $this->inputData;
                 $success = $this->model->modifyMaterial($id,$contenido->nombre, $contenido->entrega, $contenido->descripcion, $contenido->foto);
                 if ($success==0) {
                     $msg = "El Material fue modificado con exito";

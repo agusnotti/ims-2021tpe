@@ -28,8 +28,16 @@ $r->addRoute('materiales/:ID', 'GET', 'ApiMaterialesController', 'getMaterialByI
 $r->addRoute('materiales', 'POST', 'ApiMaterialesController', 'insertarMaterial');
 $r->addRoute('materiales/:ID', 'PUT', 'ApiMaterialesController', 'editMaterialById');
 
-
 $r->addRoute('pesajes', 'POST', 'ApiPesajesController', 'insertarPesaje');
+$r->addRoute('acopios', 'GET', 'ApiPesajesController', 'obtenerAcopios');
+$r->addRoute('acopios/reporte', 'GET', 'ApiPesajesController', 'generarReporteAcopios');
+$r->addRoute('acopios/:ID', 'GET', 'ApiPesajesController', 'obtenerAcopio');
+
+
+$r->addRoute('login', 'POST', 'ApiUsersController', 'login');
+$r->addRoute('logout', 'POST', 'ApiUsersController', 'logout');
+$r->addRoute('register', 'POST', 'ApiUsersController', 'register');
+$r->addRoute('session', 'GET', 'ApiUsersController', 'userSession');
 
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

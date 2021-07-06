@@ -11,6 +11,6 @@ class APIExcelDownload extends APIView
         $date = Carbon::now()->timezone('America/Buenos_Aires')->isoFormat("DD-MM-YYYY hh.mm" );
 
         SimpleXLSXGen::fromArray($data)
-            ->downloadAs('reporte_retiros '. $date.'.xlsx');
+            ->downloadAs('reporte '. $date.'.xlsx');
         }
 }
