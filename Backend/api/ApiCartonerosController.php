@@ -66,5 +66,27 @@ class ApiCartonerosController extends ApiController
     }
 
 
+    public function editCartoneroById($params = null)
+    {
+        if (isset($params[':ID'])) {
+            $id = $params[':ID'];
+            $cartonero = $this->model->getCartoneroById($id);
+            if (!empty($cartonero)) {
+                $contenido = $this->inputData;
+                $success = $this->model->modifyCartonero($id,$contenido->nombre, $contenido->apellido, $contenido->dni, $contenido->direccion, $contenido->dob, $contenido->vehiculo, $contenido->capacidad);
+                if ($success==0) {
+                    $msg = "El Cartonero fue modificado con exito";
+                    $this->view->response($msg, 200);
+                } else {
+                    $this->view->response("El Cartonero no se pudo modificar", 400);
+                }
+               
+            } else {
+                $this->view->response("No existen Cartoneros para el id = $id", 404);
+            }
+        } else {
+            $this->view->response("No estaba seteado el id", 500);
+        }
+    }
     
 }
