@@ -53,7 +53,6 @@ function agregarCartonero(event) {
     .catch((error) => console.log(error));
 }
 
-
 getCartoneros();
 
 function getCartoneros() {
@@ -72,7 +71,7 @@ function getCartoneros() {
 }
 
 function renderTable(cartoneros) {
-    cartoneros.forEach((cartonero) => {
+  cartoneros.forEach((cartonero) => {
     renderRow(cartonero);
   });
 }
@@ -88,17 +87,17 @@ function renderRow(cartonero) {
   let td6 = document.createElement("td");
   let td7 = document.createElement("td");
   let td8 = document.createElement("td");
-  
+
   let btnEliminar = document.createElement("button");
   let btnEditar = document.createElement("button");
 
-  /* btnEliminar.addEventListener("click", function () {
+    /* btnEliminar.addEventListener("click", function () {
     borrarCartonero(id);
-  }); */
+    }); */
 
-  /* btnEditar.addEventListener("click", function () {
-    renderEditarCartonero(material);
-  }); */
+  btnEditar.addEventListener("click", function () {
+    renderEditarCartonero(cartonero);
+  });
 
   td1.innerText = cartonero.nombre;
   td2.innerText = cartonero.apellido;
@@ -108,7 +107,6 @@ function renderRow(cartonero) {
   td6.innerText = cartonero.vehiculo;
   td7.innerText = cartonero.capacidad;
 
- 
   td1.classList.add("text-justify");
   td2.classList.add("text-justify");
   td3.classList.add("text-justify");
@@ -124,6 +122,9 @@ function renderRow(cartonero) {
   btnEditar.innerHTML = '<i class="fas fa-edit"></i>';
   btnEliminar.classList.add("btn-tabla-borrar");
   btnEditar.classList.add("btn-tabla-editar");
+  btnEditar.setAttribute("data-bs-toggle", "modal");
+  btnEditar.setAttribute("data-bs-target", "#myModal");
+
   td8.classList.add("btn-actions");
   td8.appendChild(btnEliminar);
   td8.appendChild(btnEditar);
@@ -138,4 +139,53 @@ function renderRow(cartonero) {
   tr.appendChild(td8);
 
   table.appendChild(tr);
+}
+
+function editarCartonero(event) {
+  event.preventDefault();
+
+  let cartonero = {
+    nombre: nombre.value,
+    apellido: apellido.value,
+    dni: documento.value,
+    direccion: direccion.value,
+    dob: fechaNacimiento.value,
+    vehiculo: vehiculo.value,
+    capacidad: capacidad.value,
+  };
+
+  fetch(urlBase + urlCartoneros + "/" + btnEditar.dataset.idCartonero, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(cartonero),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        //showError("ERROR AL AGREGAR M");
+      } else {
+        return response.json();
+      }
+    })
+    .then((json) => {
+      location.reload();
+    })
+    .catch((error) => console.log(error));
+}
+
+function renderEditarCartonero(cartonero) {
+  nombre.value = cartonero.nombre;
+  apellido.value = cartonero.apellido;
+  documento.value = cartonero.dni;
+  direccion.value = cartonero.direccion;
+  fechaNacimiento.value = cartonero.dob;
+  vehiculo.value = cartonero.vehiculo;
+  capacidad.value = cartonero.capacidad;
+
+  btnEditar.dataset.idCartonero = cartonero.id;
+  btnEditar.addEventListener("click", editarCartonero);
+  btnEditar.hidden = false;
+  btnCancelar.hidden = false;
+  btnAgregar.hidden = true;
 }
