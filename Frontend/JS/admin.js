@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     btnEditar.addEventListener("click", function () {
-        renderEditarMaterial(material);
-      });
+      renderEditarMaterial(material);
+    });
 
     td1.innerText = material.nombre;
     td2.innerText = material.descripcion;
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function agregarMaterial(event) {
-    //event.preventDefault();
+    event.preventDefault();
 
     let material = {
       nombre: tipoMaterial.value,
@@ -106,8 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((json) => {
-        //material.id = json;
-        //renderRow(material);
+        location.reload();
       })
       .catch((error) => console.log(error));
   }
@@ -133,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     reqEntrega.value = material.entrega;
 
     btnEditar.dataset.idMaterial = material.id;
-    btnEditar.addEventListener('click', editarMaterial);
+    btnEditar.addEventListener("click", editarMaterial);
     btnEditar.hidden = false;
     btnCancelar.hidden = false;
     btnAgregar.hidden = true;
@@ -141,26 +140,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function cancelarEditar(event) {
     event.preventDefault();
-    
+
     btnEditar.hidden = true;
     btnCancelar.hidden = true;
     btnAgregar.hidden = false;
 
-    tipoMaterial.value = '';
-    descripcion.value = '';
-    reqEntrega.value = '';
+    tipoMaterial.value = "";
+    descripcion.value = "";
+    reqEntrega.value = "";
   }
 
   function editarMaterial(event) {
-    //event.preventDefault();
+    event.preventDefault();
+
     let material = {
-        nombre: tipoMaterial.value,
-        descripcion: descripcion.value,
-        entrega: reqEntrega.value,
-        foto: null,
+      nombre: tipoMaterial.value,
+      descripcion: descripcion.value,
+      entrega: reqEntrega.value,
+      foto: null,
     };
 
-    fetch(urlBase + urlMateriales + '/' + btnEditar.dataset.idMaterial, {
+    fetch(urlBase + urlMateriales + "/" + btnEditar.dataset.idMaterial, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -175,9 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((json) => {
-        //material.id = json;
-        //renderRow(material);
+        location.reload();
       })
       .catch((error) => console.log(error));
-  }
+  }  
 });
