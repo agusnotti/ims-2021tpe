@@ -70,11 +70,68 @@
 
 
     <main>
+        <div class="title-container">
+            <h2>Agregar Materiales</h2>
+            <button id="btn-agregar-materiales" class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i> Agregar</button>
+        </div>
 
-        <h2>Agregar Materiales</h2>
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header p-4">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Material</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                       
+                        <form action="#"  class="form-abm-materiales">
+        
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Tipo material:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="tipo-material"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Descripcion: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="descripcion" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Formas de entrega: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="req-entrega" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Imagen: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="file" id="imagen" class="form-control" placeholder="Imagen">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-agregar" data-bs-dismiss="modal">Agregar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-editar" data-bs-dismiss="modal">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="container-fluid">        
-            <form class="form-abm-materiales">
+            <!-- <form class="form-abm-materiales">
                 <div class="row">
                     <div class="col">
                         <input type="text" id="tipo-material" class="form-control" placeholder="Tipo material">
@@ -94,7 +151,7 @@
                         <button id="btn-cancelar" hidden class="btn btn-warning">Cancelar</button>
                     </div>
                 </div>
-            </form>
+            </form> -->
 
 
             <table id="tabla-materiales" class="table table-striped">

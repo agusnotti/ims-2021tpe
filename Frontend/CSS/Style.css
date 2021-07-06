@@ -125,3 +125,11 @@ ul.tabs li:hover {
   text-align: center;
 }
 
+
+.title-container{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
