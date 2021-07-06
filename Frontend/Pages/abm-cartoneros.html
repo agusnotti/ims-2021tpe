@@ -53,8 +53,8 @@
     <main>
 
         <div class="title-container">
-            <h2>Agregar Materiales</h2>
-            <button id="btn-agregar-materiales" class="btn btn-warning m-2" data-bs-toggle="modal"
+            <h2>Agregar Recolector</h2>
+            <button id="btn-agregar-cartonero" class="btn btn-warning m-2" data-bs-toggle="modal"
                 data-bs-target="#myModal"><i class="fas fa-plus"></i> Agregar</button>
         </div>
 
@@ -62,7 +62,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content">
                     <div class="modal-header p-4">
-                        <h5 class="modal-title" id="exampleModalLabel">Agregar Material</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Recolector</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -71,37 +71,67 @@
 
                             <div class="row mb-3 align-items-center">
                                 <div class="col-3">
-                                    <label class="col-form-label">Tipo material:</label>
+                                    <label class="col-form-label">Nombre: </label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" id="tipo-material" class="form-control">
+                                    <input type="text" id="nombre" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3  align-items-center">
                                 <div class="col-3">
-                                    <label class="col-form-label">Descripcion: </label>
+                                    <label class="col-form-label">Apellido: </label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" id="descripcion" class="form-control">
+                                    <input type="text" id="apellido" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3  align-items-center">
                                 <div class="col-3">
-                                    <label class="col-form-label">Formas de entrega: </label>
+                                    <label class="col-form-label">Documento: </label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" id="req-entrega" class="form-control">
+                                    <input type="text" id="documento" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3  align-items-center">
                                 <div class="col-3">
-                                    <label class="col-form-label">Imagen: </label>
+                                    <label class="col-form-label">Direccion: </label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="file" id="imagen" class="form-control" placeholder="Imagen">
+                                    <input type="text" id="direccion" class="form-control">
                                 </div>
                             </div>
-
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Fecha de Nacimiento: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" id="dob" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    
+                                    <label class="col-form-label">Vehiculo: </label>
+                                </div>
+                                <div class="col-9">
+                                    <select name="vahiculo" id="vehiculo" class="form-control" >
+                                        <option selected="true" disabled="disabled">Seleccione su tipo de vehiculo</option>
+                                        <option value="Auto">Auto</option>
+                                        <option value="Camioneta">Camioneta</option>
+                                        <option value="Camion">Camión</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="row mb-3  align-items-center">
+                                <div class="col-3">
+                                    <label class="col-form-label">Capacidad: </label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" id="capacidad" class="form-control">
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -114,22 +144,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid">
-            <table id="tabla-materiales" class="table table-striped">
-                <thead>
-                    <tr class="table-row">
-                        <th scope="col">Nombre</th>
-                        <th class="w-50" scope="col">Descripcion</th>
-                        <th scope="col">Requisitos de entrega</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody id="body-tabla">
-
-                </tbody>
-            </table>
         </div>
     </main>
 
@@ -151,7 +165,7 @@
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
 
-
+    <script src="../JS/abmCartoneros.js" type="module"></script>
 <script src="../JS/extraccion.js" type="module"></script>
 
 </html>
