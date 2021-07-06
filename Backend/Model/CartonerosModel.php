@@ -32,7 +32,7 @@ class CartonerosModel extends Model{
 
     function modifyCartonero($id,$nombre,$apellido,$dni,$direccion,$dob,$vehiculo,$capacidad){
         $sentencia = $this->db->prepare("UPDATE cartoneros SET nombre=?, apellido=?, dni=?, direccion=?, dob=?, vehiculo=?, capacidad=? WHERE id=?");
-        $sentencia->execute(array($id,$nombre,$apellido,$dni,$direccion,$dob,$vehiculo,$capacidad));
+        $sentencia->execute(array($nombre,$apellido,$dni,$direccion,$dob,$vehiculo,$capacidad, $id));
         return $sentencia->rowCount();
     }
 }
