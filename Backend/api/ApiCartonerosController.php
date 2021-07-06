@@ -48,6 +48,22 @@ class ApiCartonerosController extends ApiController
     }
 
     
+    public function deleteCartoneroById($params = null)
+    {
+        if (isset($params[':ID'])) {
+            $id = $params[':ID'];
+            $cartonero = $this->model->deleteCartoneroById($id);
+
+            if (!empty($cartonero)) {
+                $msg = "El Cartonero con id: $id fue eliminado con éxito";
+                $this->view->response($msg, 200);
+            } else {
+                $this->view->response("No existe Cartonero para el id = $id", 404);
+            }
+        } else {
+            $this->view->response("No estaba seteado el id", 500);
+        }
+    }
 
 
     

@@ -44,6 +44,7 @@ $r->addRoute('session', 'GET', 'ApiUsersController', 'userSession');
 $r->addRoute('cartoneros', 'GET', 'ApiCartonerosController', 'obtenerCartoneros');
 $r->addRoute('cartoneros/:ID', 'GET', 'ApiCartonerosController', 'getCartoneroById');
 $r->addRoute('cartoneros', 'POST', 'ApiCartonerosController', 'insertarCartonero');
+$r->addRoute('cartoneros/:ID', 'DELETE', 'ApiCartonerosController', 'deleteCartoneroById');
 
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

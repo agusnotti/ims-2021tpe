@@ -24,7 +24,11 @@ class CartonerosModel extends Model{
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
+    function deleteCartoneroById($id){
+        $sentencia = $this->db->prepare('DELETE FROM cartoneros WHERE id=?');
+        $sentencia->execute(array($id));
+        return $sentencia->rowCount();
+    }
 
     
-
 }
