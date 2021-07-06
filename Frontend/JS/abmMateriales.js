@@ -19,7 +19,7 @@ function getMateriales() {
   fetch(urlBase + urlMateriales, {})
     .then((response) => {
       if (!response.ok) {
-        showError("No se pudieron obtener los materiales");
+        //showError("No se pudieron obtener los materiales");
       } else {
         return response.json();
       }
@@ -58,8 +58,9 @@ function renderRow(material) {
   td2.innerText = material.descripcion;
   td3.innerText = material.entrega;
 
+  
   td1.classList.add("text-justify");
-  td2.classList.add("text-justify");
+  td2.classList.remove("text-justify");
   td3.classList.add("text-justify");
   td4.classList.add("text-justify");
 

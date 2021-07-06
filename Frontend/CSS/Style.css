@@ -61,6 +61,7 @@
 
 .table-row {
   background-color: #84cb33;
+  text-align: center;
 }
 
 .btn-tabla-borrar, .btn-tabla-editar{
@@ -133,3 +134,6 @@ ul.tabs li:hover {
   justify-content: flex-start;
 }
 
+.text-justify{
+  text-align: center;
+}
