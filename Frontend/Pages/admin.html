@@ -72,7 +72,8 @@
     <main>
         <div class="title-container">
             <h2>Agregar Materiales</h2>
-            <button id="btn-agregar-materiales" class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i> Agregar</button>
+            <button id="btn-agregar-materiales" class="btn btn-warning m-2" data-bs-toggle="modal"
+                data-bs-target="#myModal"><i class="fas fa-plus"></i> Agregar</button>
         </div>
 
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,15 +84,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                       
-                        <form action="#"  class="form-abm-materiales">
-        
+
+                        <form action="#" class="form-abm-materiales">
+
                             <div class="row mb-3 align-items-center">
                                 <div class="col-3">
                                     <label class="col-form-label">Tipo material:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" id="tipo-material"  class="form-control">
+                                    <input type="text" id="tipo-material" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3  align-items-center">
@@ -122,15 +123,18 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-light me-2" id="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-outline-light me-2" id="btn-agregar" data-bs-dismiss="modal">Agregar</button>
-                        <button type="button" class="btn btn-outline-light me-2" id="btn-editar" data-bs-dismiss="modal">Editar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-cancelar"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-agregar"
+                            data-bs-dismiss="modal">Agregar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-editar"
+                            data-bs-dismiss="modal">Editar</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">        
+        <div class="container-fluid">
             <!-- <form class="form-abm-materiales">
                 <div class="row">
                     <div class="col">
@@ -170,6 +174,39 @@
         </div>
 
     </main>
+
+
+        <!-- modal ELIMINAR MATERIAL -->
+        <div class="modal fade" id="myModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header p-4">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Material</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="#" class="form-abm-materiales">
+
+                            <div class="row-cols-6 align-items-center">
+                                <div class="col-12">
+                                    <label class="col-form-label">¿Está seguro que quiere eliminar?</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-cancelar"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-light me-2" id="btn-eliminar-material"
+                            data-bs-dismiss="modal">Si</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <footer class="footer">
         <ul class="items-footer">
             <li><a href="#"><i class="fab fa-instagram"></i></a></li>

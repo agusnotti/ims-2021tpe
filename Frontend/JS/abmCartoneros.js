@@ -14,12 +14,32 @@ let btnCancelar = document.getElementById("btn-cancelar");
 let btnAgregar = document.getElementById("btn-agregar");
 let btnEditar = document.getElementById("btn-editar");
 
+let btnEliminarCartonero = document.getElementById("btn-eliminar-cartonero");
+
 let table = document.getElementById("body-tabla");
 
 btnAgregar.addEventListener("click", agregarCartonero);
 btnAgregarCartonero.addEventListener("click", () => {
   btnEditar.hidden = true;
 });
+
+btnCancelar.addEventListener('click', cancelarEditar)
+
+function cancelarEditar(event) {
+  event.preventDefault();
+
+  btnEditar.hidden = true;
+  btnCancelar.hidden = true;
+  btnAgregar.hidden = false;
+
+  nombre.value = "";
+  apellido.value = "";
+  documento.value = "";
+  direccion.value = "";
+  fechaNacimiento.value = "";
+  vehiculo.value = "";
+  capacidad.value = "";
+}
 
 function agregarCartonero(event) {
   event.preventDefault();
@@ -91,9 +111,9 @@ function renderRow(cartonero) {
   let btnEliminar = document.createElement("button");
   let btnEditar = document.createElement("button");
 
-    /* btnEliminar.addEventListener("click", function () {
-    borrarCartonero(id);
-    }); */
+  btnEliminar.addEventListener("click", function () {
+    renderizarEliminarCartonero(id);
+  });
 
   btnEditar.addEventListener("click", function () {
     renderEditarCartonero(cartonero);
@@ -124,6 +144,8 @@ function renderRow(cartonero) {
   btnEditar.classList.add("btn-tabla-editar");
   btnEditar.setAttribute("data-bs-toggle", "modal");
   btnEditar.setAttribute("data-bs-target", "#myModal");
+  btnEliminar.setAttribute("data-bs-toggle", "modal");
+  btnEliminar.setAttribute("data-bs-target", "#myModalEliminar");
 
   td8.classList.add("btn-actions");
   td8.appendChild(btnEliminar);
@@ -174,6 +196,11 @@ function editarCartonero(event) {
     .catch((error) => console.log(error));
 }
 
+function renderizarEliminarCartonero(id) {
+  btnEliminarCartonero.dataset.idCartonero = id;
+  btnEliminarCartonero.addEventListener("click", borrarCartonero);
+}
+
 function renderEditarCartonero(cartonero) {
   nombre.value = cartonero.nombre;
   apellido.value = cartonero.apellido;
@@ -188,4 +215,23 @@ function renderEditarCartonero(cartonero) {
   btnEditar.hidden = false;
   btnCancelar.hidden = false;
   btnAgregar.hidden = true;
+}
+
+function borrarCartonero(event) {
+  fetch(
+    urlBase + urlCartoneros + "/" + btnEliminarCartonero.dataset.idCartonero,
+    {
+      method: "DELETE",
+    }
+  )
+    .then(function (response) {
+      if (!response.ok) {
+        //showError("ERROR AL BORRAR");
+      }
+    })
+    .then(function () {
+      //document.getElementById(id).remove();
+      location.reload();
+    })
+    .catch((error) => console.log(error));
 }
