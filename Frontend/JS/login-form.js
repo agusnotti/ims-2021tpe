@@ -1,0 +1,74 @@
+
+let main = document.querySelector("#login")
+
+let response = await fetch('./js/login-form.html');
+if (!response.ok) {
+  throw new Error(`HTTP error! status: ${response.status}`);
+} else {
+  let mytext = await response.text();
+
+  main.innerHTML = mytext
+}
+
+
+
+document.querySelector('#btn-login').addEventListener("click", () => {
+
+    let data = {
+        "user": document.querySelector("#user").value,
+        "pass": document.querySelector("#pass").value,
+    }
+
+  postUser(JSON.stringify(data));
+
+})
+
+async function postUser(data) {
+
+  let response = await fetch('http://localhost/api/login/', {
+    method: 'POST',
+    body: data,
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+    let mytext = await response.text();
+    if(response.status === 200)
+    {
+    
+        window.location = './Pages/admin.html'
+    }
+    else{
+      responseError(mytext)
+    }
+    
+  
+  }
+}
+
+
+
+const alertDiv = document.querySelector("#alerts")
+
+
+
+async function responseError(error) {
+  let response = await fetch('./js/register-alert-danger.html');
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+    let mytext = await response.text();
+
+    alertDiv.innerHTML = mytext.replace("{{error}}",error)
+  }
+
+  setTimeout(function () {
+    var myAlert = document.querySelector('.alert')
+    var bsAlert = new bootstrap.Alert(myAlert)
+    bsAlert.close()
+  }, 3000);
+
+}
