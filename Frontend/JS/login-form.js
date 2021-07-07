@@ -39,7 +39,6 @@ async function postUser(data) {
   if (!response.ok) {
    
   }else {
-
     
         sessionStorage.setItem("user",userCheck);
         window.location = './Pages/admin.html'
@@ -61,7 +60,7 @@ async function postUser(data) {
         return error;
     });
 
-    
+
 const alertDiv = document.querySelector("#alerts")
 
 
