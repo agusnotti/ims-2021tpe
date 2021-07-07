@@ -16,8 +16,10 @@ document.querySelector('#btn-login').addEventListener("click", () => {
 
     let data = {
         "user": document.querySelector("#user").value,
-        "pass": document.querySelector("#pass").value,
+        "password": document.querySelector("#pass").value,
     }
+
+    
 
   postUser(JSON.stringify(data));
 
@@ -25,7 +27,9 @@ document.querySelector('#btn-login').addEventListener("click", () => {
 
 async function postUser(data) {
 
-  let response = await fetch('http://localhost/api/login/', {
+  let userCheck = document.querySelector("#user").value;
+
+  let response = await fetch('http://localhost/api/login', {
     method: 'POST',
     body: data,
     headers: {
@@ -33,30 +37,37 @@ async function postUser(data) {
     }
   })
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  } else {
-    let mytext = await response.text();
-    if(response.status === 200)
-    {
+   
+  }else {
+
     
+        sessionStorage.setItem("user",userCheck);
         window.location = './Pages/admin.html'
+
     }
-    else{
-      responseError(mytext)
-    }
-    
-  
-  }
+
 }
 
 
 
+
+    let data = fetch('http://localhost/api/session')
+    .then((response) => response.json())
+    .then(data => {
+        console.log(data)
+        return data;
+    })
+    .catch(error => {
+        return error;
+    });
+
+    
 const alertDiv = document.querySelector("#alerts")
 
 
 
 async function responseError(error) {
-  let response = await fetch('./js/register-alert-danger.html');
+  
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   } else {

@@ -16,8 +16,8 @@ document.querySelector('#registration').addEventListener("click", () => {
 
   let data = {
     "user": document.querySelector("#user-register").value,
-    "pass": document.querySelector("#pass-register").value,
-    "confirmation": document.querySelector("#confirmation").value,
+    "password": document.querySelector("#pass-register").value,
+    "confirm_password": document.querySelector("#confirmation").value,
   }
 
   postUser(JSON.stringify(data));

@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
   const urlBase = "http://localhost/api";
   const urlMateriales = "/materiales";
   let table = document.getElementById("body-tabla");
@@ -10,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let reqEntrega = document.getElementById("req-entrega");
   let imagen = document.getElementById("imagen");
   let btnAgregarMateriales = document.getElementById("btn-agregar-materiales");
+
+
+  
+
 
   btnAgregar.addEventListener("click", agregarMaterial);
   //btnCancelar.addEventListener("click", cancelarEditar);
