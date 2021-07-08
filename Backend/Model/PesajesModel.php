@@ -28,6 +28,6 @@ class PesajesModel extends Model{
         inner join materiales  on pesajes.id_material = materiales.id
         where  id_cartonero=? GROUP by id_cartonero,id_material");
         $query->execute(array($id));
-        return $query->fetch(PDO::FETCH_OBJ);
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }
