@@ -14,7 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
   let btnAgregarMateriales = document.getElementById("btn-agregar-materiales");
 
 
-  
+
+  let data = fetch('http://localhost/api/session')
+  .then((response) => response.json())
+  .then(data => {
+      console.log(data)
+      return data;
+  })
+  .catch(error => {
+      return error;
+  });
+
 
 
   btnAgregar.addEventListener("click", agregarMaterial);

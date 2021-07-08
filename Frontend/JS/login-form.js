@@ -19,8 +19,6 @@ document.querySelector('#btn-login').addEventListener("click", () => {
         "password": document.querySelector("#pass").value,
     }
 
-    
-
   postUser(JSON.stringify(data));
 
 })
@@ -36,20 +34,22 @@ async function postUser(data) {
       "Content-Type": "application/json"
     }
   })
+  
   if (!response.ok) {
    
   }else {
-    
-        sessionStorage.setItem("user",userCheck);
-        window.location = './Pages/admin.html'
+
+        let mytext = await response.text();
+        if(mytext.includes('Usuario Loggeado correctamente')){
+
+            sessionStorage.setItem("user",userCheck);
+            window.location = './Pages/admin.html';
+        }
+      
 
     }
 
-}
-
-
-
-
+    /*
     let data = fetch('http://localhost/api/session')
     .then((response) => response.json())
     .then(data => {
@@ -59,6 +59,12 @@ async function postUser(data) {
     .catch(error => {
         return error;
     });
+    */
+    
+
+}
+
+
 
 
 const alertDiv = document.querySelector("#alerts")
