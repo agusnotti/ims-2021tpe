@@ -7,7 +7,7 @@ let options = document.getElementById("option-acopio");
 
 document.getElementById('consulta-all').addEventListener('click', ()=> getAcopios());
 
-
+getAcopios();
 getOptionAcopio();
 addEvent();
 
