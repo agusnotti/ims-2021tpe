@@ -26,7 +26,7 @@ document.querySelector('#registration').addEventListener("click", () => {
 
 async function postUser(data) {
 
-  let response = await fetch('http://localhost/api/register', {
+  let response = await fetch('http://localhost/api/register/', {
     method: 'POST',
     body: data,
     headers: {
