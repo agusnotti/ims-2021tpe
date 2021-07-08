@@ -16,6 +16,8 @@ let btnEditar = document.getElementById("btn-editar");
 
 let btnEliminarCartonero = document.getElementById("btn-eliminar-cartonero");
 
+let tituloForm = document.getElementById('exampleModalLabel');
+
 let table = document.getElementById("body-tabla");
 
 btnAgregar.addEventListener("click", agregarCartonero);
@@ -23,7 +25,10 @@ btnAgregarCartonero.addEventListener("click", () => {
   btnEditar.hidden = true;
 });
 
-btnCancelar.addEventListener('click', cancelarEditar)
+btnCancelar.addEventListener('click', () => {
+  tituloForm.innerHTML = "Agregar Recolector";
+  cancelarEditar
+});
 
 function cancelarEditar(event) {
   event.preventDefault();
@@ -116,6 +121,7 @@ function renderRow(cartonero) {
   });
 
   btnEditar.addEventListener("click", function () {
+    tituloForm.innerHTML = "Modificar Cartonero";
     renderEditarCartonero(cartonero);
   });
 

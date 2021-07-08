@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let btnAgregarMateriales = document.getElementById("btn-agregar-materiales");
   let btnEliminarMaterial = document.getElementById("btn-eliminar-material");
 
+  let tituloForm = document.getElementById('exampleModalLabel');
 
 
   let data = fetch('http://localhost/api/session')
@@ -29,7 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   btnAgregar.addEventListener("click", agregarMaterial);
-  btnCancelar.addEventListener("click", cancelarEditar);
+  btnCancelar.addEventListener("click", () => {
+    tituloForm.innerHTML = "Agregar Recolector";
+    cancelarEditar
+  });
 
   btnAgregarMateriales.addEventListener("click", () => {
     btnEditar.hidden = true;
@@ -77,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     btnEditar.addEventListener("click", function () {
+      tituloForm.innerHTML = "Modificar Recolector";
       renderEditarMaterial(material);
     });
 
