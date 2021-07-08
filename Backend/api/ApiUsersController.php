@@ -45,7 +45,7 @@ class ApiUsersController extends ApiController
                 $this->model->register($user, $pass);
                 $user = $this->model->getByUsername($user);
                 $this->session->login($user);
-                $this->view->response("el usuario fue creado satisfactoriamente", 404);
+                $this->view->response("el usuario fue creado satisfactoriamente", 200);
             }
             else{
                 $this->view->response("el usuario ya existe", 404);
