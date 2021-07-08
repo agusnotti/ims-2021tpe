@@ -1,18 +1,29 @@
 <?php
-require 'vendor/autoload.php';
-include_once 'RouterClass.php';
-include_once 'ApiController.php';
-foreach (glob("api/*.php") as $filename) {
-    include $filename;
-}
-
 
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
-if($_SERVER["REQUEST_METHOD"] == "OPTIONS") exit();
+if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") exit();
+
+
+ini_set('session.cookie_samesite','');
+session_set_cookie_params(
+    6000,
+    "/api",
+    "",
+    0,
+    1
+);
+require 'vendor/autoload.php';
+include_once 'RouterClass.php';
+include_once 'ApiController.php';
+foreach (glob("api/*.php") as $filename) {
+    include $filename;
+}
+// $test = phpinfo();
+
 
 $r = new Router();
 
