@@ -18,7 +18,7 @@
     <header class="p-3 text-white header">
         <div class="container-fluid">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex mb-2 mb-lg-0 text-white text-decoration-none">
+                <a class="d-flex mb-2 mb-lg-0 text-white text-decoration-none">
                     <img src="../Assets/Images/logo3.png" alt="" class="bi me-2" width="80" height="72" role="img">
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -59,7 +59,41 @@
 
     <main>
 
-        <h1>ACOPIO DE MATERIALES POR CARTONERO - En construcción</h1>
+
+        
+            <div class="select-div">
+               
+                <select class="form-select w-25 p-3" aria-label="Default select example"name="options" id="options-cartonero">
+
+                </select>
+           
+            
+                <button type="button" class="btn btn-outline-success" id="consulta-acopio">Consultar</button>
+                <button type="button" id="consulta-all" class="btn btn-outline-secondary">Mostrar todos</button>
+            
+
+            </div>
+            
+        
+        <div class="container-fluid">
+            
+            <table id="tabla-acopio" class="table table-striped">
+                <thead>
+                    <tr class="table-row">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Material</th>
+                        <th scope="col">Total</th>
+                      
+                    </tr>
+                </thead>
+                <tbody id="body-tabla">
+
+                </tbody>
+            </table>
+        </div>
+
 
     </main>
     <footer class="footer">
@@ -79,6 +113,6 @@
     crossorigin="anonymous"></script>
 
 
-<script src="../JS/extraccion.js" type="module"></script>
+<script src="../JS/acopio.js" type="module"></script>
 
 </html>

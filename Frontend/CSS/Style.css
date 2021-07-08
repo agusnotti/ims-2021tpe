@@ -137,3 +137,19 @@ ul.tabs li:hover {
 .text-justify{
   text-align: center;
 }
+
+.select-div{
+  display: flex;
+  flex-direction: space;
+  justify-content: space-between;
+  width: 430px;
+  margin: 10px;
+}
+
+#options-cartonero{
+  margin-left: 10 px !important;
+}
+
+#title-table-materiales{
+  margin: 15px;
+}
