@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     btnEditar.addEventListener("click", function () {
-      tituloForm.innerHTML = "Modificar Recolector";
+      tituloForm.innerHTML = "Modificar Material";
       renderEditarMaterial(material);
     });
 
