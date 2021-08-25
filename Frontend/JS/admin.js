@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
   const urlBase = "http://localhost/api";
   const urlMateriales = "/materiales";
   let table = document.getElementById("body-tabla");
@@ -9,9 +11,33 @@ document.addEventListener("DOMContentLoaded", function () {
   let descripcion = document.getElementById("descripcion");
   let reqEntrega = document.getElementById("req-entrega");
   let imagen = document.getElementById("imagen");
+  let btnAgregarMateriales = document.getElementById("btn-agregar-materiales");
+  let btnEliminarMaterial = document.getElementById("btn-eliminar-material");
+
+  let tituloForm = document.getElementById('exampleModalLabel');
+
+
+  let data = fetch('http://localhost/api/session')
+  .then((response) => response.json())
+  .then(data => {
+      console.log(data)
+      return data;
+  })
+  .catch(error => {
+      return error;
+  });
+
+
 
   btnAgregar.addEventListener("click", agregarMaterial);
-  btnCancelar.addEventListener("click", cancelarEditar);
+  btnCancelar.addEventListener("click", () => {
+    tituloForm.innerHTML = "Agregar Recolector";
+    cancelarEditar
+  });
+
+  btnAgregarMateriales.addEventListener("click", () => {
+    btnEditar.hidden = true;
+  });
 
   getMateriales();
 
@@ -46,20 +72,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let btnEliminar = document.createElement("button");
     let btnEditar = document.createElement("button");
 
-    btnEliminar.addEventListener("click", function () {
+    /* btnEliminar.addEventListener("click", function () {
       borrarMaterial(id);
+    }); */
+
+    btnEliminar.addEventListener("click", function () {
+      renderizarEliminarMaterial(id);
     });
 
     btnEditar.addEventListener("click", function () {
-        renderEditarMaterial(material);
-      });
+      tituloForm.innerHTML = "Modificar Material";
+      renderEditarMaterial(material);
+    });
 
     td1.innerText = material.nombre;
     td2.innerText = material.descripcion;
     td3.innerText = material.entrega;
 
     td1.classList.add("text-justify");
-    td2.classList.add("text-justify");
+    /* td2.classList.add("text-justify"); */
     td3.classList.add("text-justify");
     td4.classList.add("text-justify");
 
@@ -69,6 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
     btnEditar.innerHTML = '<i class="fas fa-edit"></i>';
     btnEliminar.classList.add("btn-tabla-borrar");
     btnEditar.classList.add("btn-tabla-editar");
+    btnEditar.setAttribute("data-bs-toggle", "modal");
+    btnEditar.setAttribute("data-bs-target", "#myModal");
+    btnEliminar.setAttribute("data-bs-toggle", "modal");
+    btnEliminar.setAttribute("data-bs-target", "#myModalEliminar");
+
     td4.classList.add("btn-actions");
     td4.appendChild(btnEliminar);
     td4.appendChild(btnEditar);
@@ -82,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function agregarMaterial(event) {
-    //event.preventDefault();
+    event.preventDefault();
 
     let material = {
       nombre: tipoMaterial.value,
@@ -106,14 +142,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((json) => {
-        //material.id = json;
-        //renderRow(material);
+        location.reload();
       })
       .catch((error) => console.log(error));
   }
 
   function borrarMaterial(id) {
-    fetch(urlBase + urlMateriales + "/" + id, {
+    fetch(urlBase + urlMateriales + "/" + btnEliminarMaterial.dataset.idMaterial, {
       method: "DELETE",
     })
       .then(function (response) {
@@ -122,9 +157,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then(function () {
-        document.getElementById(id).remove();
+        //document.getElementById(id).remove();
+        location.reload();
       })
       .catch((error) => console.log(error));
+  }
+
+  function renderizarEliminarMaterial(id){
+    btnEliminarMaterial.dataset.idMaterial = id;
+    btnEliminarMaterial.addEventListener("click", borrarMaterial);
   }
 
   function renderEditarMaterial(material) {
@@ -133,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     reqEntrega.value = material.entrega;
 
     btnEditar.dataset.idMaterial = material.id;
-    btnEditar.addEventListener('click', editarMaterial);
+    btnEditar.addEventListener("click", editarMaterial);
     btnEditar.hidden = false;
     btnCancelar.hidden = false;
     btnAgregar.hidden = true;
@@ -141,26 +182,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function cancelarEditar(event) {
     event.preventDefault();
-    
+
     btnEditar.hidden = true;
     btnCancelar.hidden = true;
     btnAgregar.hidden = false;
 
-    tipoMaterial.value = '';
-    descripcion.value = '';
-    reqEntrega.value = '';
+    tipoMaterial.value = "";
+    descripcion.value = "";
+    reqEntrega.value = "";
   }
 
   function editarMaterial(event) {
-    //event.preventDefault();
+    event.preventDefault();
+
     let material = {
-        nombre: tipoMaterial.value,
-        descripcion: descripcion.value,
-        entrega: reqEntrega.value,
-        foto: null,
+      nombre: tipoMaterial.value,
+      descripcion: descripcion.value,
+      entrega: reqEntrega.value,
+      foto: null,
     };
 
-    fetch(urlBase + urlMateriales + '/' + btnEditar.dataset.idMaterial, {
+    fetch(urlBase + urlMateriales + "/" + btnEditar.dataset.idMaterial, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -175,8 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((json) => {
-        //material.id = json;
-        //renderRow(material);
+        location.reload();
       })
       .catch((error) => console.log(error));
   }

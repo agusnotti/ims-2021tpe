@@ -2,6 +2,20 @@
 
 /*--------------------------HEADER -----------------------*/
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+}
+/* .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+} */
+
+
 .header {
   background-color: #08465f;
 }
@@ -16,7 +30,8 @@
   position: relative;
   bottom: 0;
   width: 100%;
-}
+ 
+} 
 
 .items-footer {
   display: flex;
@@ -61,6 +76,7 @@
 
 .table-row {
   background-color: #84cb33;
+  text-align: center;
 }
 
 .btn-tabla-borrar, .btn-tabla-editar{
@@ -84,4 +100,71 @@
 
 #tabla-materiales{
 	margin-top: 20px;
+}
+
+
+
+.container-tabs{  
+  width: 100%;
+  display: flex;
+  background-color: white; 
+}
+
+ul.tabs {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  /* width: 100%; */
+  margin: 0px;
+  padding: 0px;
+  background-color: #84cb33;
+  margin-bottom: 40px;
+}
+
+ul.tabs li {
+  list-style: none;
+  margin: 0px 0px;
+  /* padding: 15px 20px; */
+}
+ul.tabs li a {
+  font-size: large;
+  text-decoration: none;
+  color: white;
+}
+
+ul.tabs li:hover {
+  font-size: larger;
+  font-weight: bolder;  
+}
+
+.form-abm-materiales{
+  text-align: center;
+}
+
+
+.title-container{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.text-justify{
+  text-align: center;
+}
+
+.select-div{
+  display: flex;
+  flex-direction: space;
+  justify-content: space-between;
+  width: 430px;
+  margin: 10px;
+}
+
+#options-cartonero{
+  margin-left: 10 px !important;
+}
+
+#title-table-materiales{
+  margin: 15px;
 }
